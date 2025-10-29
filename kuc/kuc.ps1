@@ -35,7 +35,7 @@ function GetInput {
 if ($h) {
   Write-Host "kuc for powershell"
   Write-Host "-h -> show this page"
-  Write-Host "-n -> input the id of the config to use"
+  Write-Host "-c -> show current config being used"
   Exit
 }
 
