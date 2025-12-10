@@ -30,3 +30,17 @@ $cfg_content = $cfg_content.Trim() -replace '(\[wsl2\]\s*)', "`$1`r`nnetworkingM
 Set-Content $cfg_path $cfg_content
 
 Write-Host "Updated networkingMode to $Mode inside $cfg_path file"
+
+$confirm = Read-Host -Prompt "Shutting down wsl to enable the new networkingMode Confirm? [y/N]"
+
+
+if ($confirm.ToLower() -eq "y") {
+	wsl --shutdown
+	Write-Host "wsl shutdown successfully..."
+	exit
+}
+else {
+	Write-Host "Not shutting down wsl and exiting..."
+	exit
+}
+
